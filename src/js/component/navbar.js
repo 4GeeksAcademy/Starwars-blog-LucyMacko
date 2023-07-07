@@ -1,16 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "../../styles/navbar.css";
+import { Navigate } from "react-router";
 
-export const Navbar = () => {
+
+
+export const Navbar = () => {	
+	
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
+		<nav className="navbar navbar-light bg-light">
+			<div className="container">				
+				<img src="https://www.pngplay.com/wp-content/uploads/2/Star-Wars-Logo-PNG-Background.png" onClick={()=> Navigate("/home")} style={{width:"10%",height:"20%",objectFit:"cover"}}></img>				
+			</div>
+			<div className="d-flex me-5">				
+				<div className="dropdown">
+					<button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						Favourites
+					</button>
+					<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						<li>One</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	);

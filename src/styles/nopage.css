@@ -1,0 +1,17 @@
+#main{
+    justify-content: center;
+    text-align: center;
+    display:flex;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#notLooking {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
