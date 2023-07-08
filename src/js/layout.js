@@ -6,7 +6,7 @@ import Home from "./views/home";
 import NoPage from "./views/nopage";
 import SingleView from "./views/singlecharacter";
 import injectContext from "./store/appContext";
-import { Navbar } from "./component/navbar";
+import Navbar from "./component/navbar";
 
 
 

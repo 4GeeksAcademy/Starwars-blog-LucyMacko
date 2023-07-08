@@ -33,7 +33,7 @@ const PlanetCard = (props) => {
 	}
     return(			
 			<div className="card my-5" id="cardSize">
-				<img src={`https://starwars-visualguide.com/assets/img/planets/${props.planet.uid}.jpg`} className="card-img-top" id="logo"/>
+				<img src={`https://starwars-visualguide.com/assets/img/planets/${props.planet.uid == 1 ? "6" : props.planet.uid}.jpg`} className="card-img-top" id="logo"/>
 				<div className="card-body">
 					<h5 className="card-title">{props.planet.name}</h5>
 					<div className="card-text">						

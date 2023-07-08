@@ -87,7 +87,7 @@ const Home = () => {
 	const showCharacters = () =>{
 		return characters.map((character, index) =>{
 				return(
-					<li key={index}
+					<li className="w-25" key={index}
 					>
 				 		<CharacterCard character={character} />
 					</li>
@@ -98,7 +98,7 @@ const Home = () => {
 	const showPlanets = () =>{
 		return planets.map((planet, index) =>{
 				return(
-					<li key={index}
+					<li className="w-25" key={index}
 					>
 				 		<PlanetCard planet={planet} />
 					</li>
@@ -108,7 +108,7 @@ const Home = () => {
 	const showVehicles = () =>{
 		return vehicles.map((vehicle, index) =>{
 				return(
-					<li key={index}
+					<li className="w-25" key={index}
 					>
 				 		<VehicleCard vehicle={vehicle} />
 					</li>
