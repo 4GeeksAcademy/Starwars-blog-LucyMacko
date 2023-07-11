@@ -1,10 +1,10 @@
 h1{
     color: darkred;
     text-align: start;
+    margin-top:40px;
     margin-left:100px;
     margin-bottom:25px;
 }
-
 .card{
     width: 18rem;
     margin-left:100px;
@@ -14,18 +14,6 @@ button{
    margin-left: 10px;
    margin-right:10px;
 }
-
-ul{
-    
-    
-}
-
 li{
-    list-style-type: none;    
-    width:auto;
-    margin-right:10px;    
-}
-
-#cardSize{
-    
+    list-style-type: none;       
 }

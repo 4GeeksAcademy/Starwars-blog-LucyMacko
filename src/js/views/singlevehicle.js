@@ -1,23 +1,88 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
+import "../../styles/singlevehicle.css";
 
-const SingleVehicle = () =>{
-    return(
-        <div className="card my-5">
-            <img src="https://starwars-visualguide.com/assets/img/vehicles/4.jpg" className="card-img-top"/>
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div className="d-grid gap-5 d-md-flex">
-                    <button className="btn btn-outline-primary">Learn more!</button>
-                    <button className="btn btn-outline-warning">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                        </svg>
-                    </button>
-                </div>
-		    </div>
-        </div>
-    )
+const SingleVehicle = () => {
+	
+	const [vehicle, setVehicle] = useState();	
+	const params = useParams();
+
+	useEffect(() => {
+		fetchSingleCharacter();
+	})
+
+	const fetchSingleCharacter = () => {
+		fetch('https://www.swapi.tech/api/vehiclese/' + params.uid, {
+			method: 'GET',
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+		.then(resp=> {			
+			console.log(resp.text)
+			return resp.json();
+		})
+		.then(data=>{			
+			console.log(data.result)
+			setVehicle(data.result);
+		})
+		.catch(error=>{
+			console.log(error);
+		})
+	}	
+	
+	return (
+		<div className="container-fluid">
+			{vehicle ? (
+				<div className="card mb-2" id="singleCardSize">
+					<div className="row g-0">
+						<div className="col-md-5">
+							<img src={`https://starwars-visualguide.com/assets/img/characters/${params.uid}.jpg`} 
+                            className="img-fluid rounded-start" alt="vehicle photo"/>
+						</div>
+						<div className="col-md-7">
+							<div className="card-body">
+								<h2 className="card-title text-center my-2">{vehicle.properties.name}</h2>
+								<p className="card-text text-center pt-4">Star Wars is an American epic space opera multimedia franchise created by George Lucas, which began with the eponymous 1977 film and quickly became a worldwide pop culture phenomenon.</p>
+							</div>
+						</div>
+					</div>
+					<div className="container-fluid" id="footer">
+						<div className="row pt-3" id="vehicleInfo">
+							<div className="col-2 text-center">
+								<p className="strong">Model</p>
+								<p>{vehicle.properties.model}</p>
+							</div>
+							<div className="col-2 text-center">
+								<p className="strong">Class</p>
+								<p>{vehicle.properties.vehicle_class}</p>
+							</div>
+							<div className="col-2 text-center">
+								<p className="strong">Crew</p>
+								<p>{vehicle.properties.crew}</p>
+							</div>
+							<div className="col-2 text-center">
+								<p className="strong">Passengers</p>
+								<p>{vehicle.properties.passengers}</p>
+							</div>
+							<div className="col-2 text-center">
+								<p className="strong">Max speed</p>
+								<p>{vehicle.properties.max_atmosphering_speed}</p>
+							</div>
+							<div className="col-2 text-center">
+								<p className="strong">Consumables</p>
+								<p>{vehicle.properties.consumables}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				) : (
+					<div className="spinner-border" role="status">
+                    	<span className="visually-hidden">Loading...</span>
+                	</div>
+			)}
+		</div>		
+	);
 }
 
 export default SingleVehicle

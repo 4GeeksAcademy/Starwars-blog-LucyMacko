@@ -1,0 +1,14 @@
+#singleCardSize{
+    width: 700px;
+    border:none;
+    margin:auto;
+}
+
+#vehicleInfo{
+    color:darkred;
+    border-top: 1px solid darkred;
+}
+
+#footer{
+    margin-top:30px;
+}

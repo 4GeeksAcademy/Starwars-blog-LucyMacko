@@ -1,0 +1,16 @@
+#singleCardSize{
+    width: 700px;
+    border:none;
+    margin:auto;
+}
+#characterInfo{
+    color:darkred;
+    border-top: 1px solid darkred;
+}
+.strong{
+    font-weight: bold;
+}
+
+#footer{
+    margin-top:30px;
+}

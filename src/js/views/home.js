@@ -25,8 +25,7 @@ const Home = () => {
 		})
 		.then(resp => {
 			console.log(resp.ok);
-			console.log(resp.status);
-			console.log(resp);
+			console.log(resp.status);			
 		return resp.json();
 		})
 		.then(data=> {
@@ -35,7 +34,7 @@ const Home = () => {
 		})
 		.catch(error => {
 			console.log(error);
-			alert('Oops something went wrong'+ error);
+			console.log('Oops something went wrong'+ error);
 		})
 	}
 
@@ -48,8 +47,7 @@ const Home = () => {
 		})
 		.then(resp => {
 			console.log(resp.ok);
-			console.log(resp.status);
-			console.log(resp);
+			console.log(resp.status);			
 		return resp.json();
 		})
 		.then(data=> {
@@ -58,7 +56,7 @@ const Home = () => {
 		})
 		.catch(error => {
 			console.log(error);
-			alert('Oops something went wrong'+ error);
+			console.log('Oops something went wrong'+ error);
 		});
 	}
 	const getVehicles = () => {
@@ -70,8 +68,7 @@ const Home = () => {
 		})
 		.then(resp => {
 			console.log(resp.ok);
-			console.log(resp.status);
-			console.log(resp);
+			console.log(resp.status);			
 		return resp.json();
 		})
 		.then(data=> {
@@ -80,7 +77,7 @@ const Home = () => {
 		})
 		.catch(error => {
 			console.log(error);
-			alert('Oops something went wrong'+ error);
+			console.log('Oops something went wrong'+ error);
 		})
 	}
 
@@ -116,26 +113,25 @@ const Home = () => {
 			})
 	}
 	return (	
-	<div className="container">		
+	<div className="container-fluid">		
 			<h1> Characters</h1>
-			<ul className="row d-flex flex-nowrap overflow-auto">
+			<ul className="row d-flex flex-nowrap overflow-auto mx-4">
 				{showCharacters()}
 			</ul>		
 		
 
-		<div className="container">
+		<div className="container-fluid">
 			<h1> Planets</h1>
-			<ul className="row d-flex flex-nowrap overflow-auto">
+			<ul className="row d-flex flex-nowrap overflow-auto mx-4">
 				{showPlanets()}
 			</ul>		
 		</div>
 
-		<div className="container">
+		<div className="container-fluid">
 			<h1> Vehicles</h1>
-			<ul className="row d-flex flex-nowrap overflow-auto">
+			<ul className="row d-flex flex-nowrap overflow-auto mx-4">
 				{showVehicles()}
-			</ul>
-			
+			</ul>			
 		</div>
 	</div>
 	)
